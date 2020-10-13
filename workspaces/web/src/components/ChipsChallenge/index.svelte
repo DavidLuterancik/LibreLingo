@@ -32,7 +32,7 @@
         })
       },
     })
-    
+
     let sortable = new Sortable(node, options)
 
     return {
@@ -51,7 +51,7 @@
   export let resolveChallenge
   export let skipChallenge
   export let skipAllChallenges
-  
+
   let submitted = false
   let correct = null
   const answer = writable([])
@@ -115,12 +115,11 @@
         class="chips"
         use:sortable="{{ items: answer, options: { group: 'chips', forceFallback: true } }}">
         {#each get(answer) as chip}
-          <span on:dblclick={(chip)=> console.log(chip)} class="chip">
+          <span class="chip">
             <spain class="tag is-medium">{chip}</spain>
           </span>
         {/each}
       </div>
-
     </div>
 
     <p class="sub-instructions">Use these words:</p>
@@ -128,7 +127,7 @@
       class="chips"
       use:sortable="{{ items: chips, options: { group: 'chips', forceFallback: true } }}">
       {#each get(chips) as chip}
-        <span on:dblclick={(e)=> update.items([])} class="chip">
+        <span class="chip">
           <spain class="tag is-medium">{chip}</spain>
         </span>
       {/each}
