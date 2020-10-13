@@ -32,7 +32,7 @@
         })
       },
     })
-
+    
     let sortable = new Sortable(node, options)
 
     return {
@@ -115,7 +115,7 @@
         class="chips"
         use:sortable="{{ items: answer, options: { group: 'chips', forceFallback: true } }}">
         {#each get(answer) as chip}
-          <span class="chip">
+          <span on:dblclick={(chip)=> console.log(chip)} class="chip">
             <spain class="tag is-medium">{chip}</spain>
           </span>
         {/each}
@@ -128,7 +128,7 @@
       class="chips"
       use:sortable="{{ items: chips, options: { group: 'chips', forceFallback: true } }}">
       {#each get(chips) as chip}
-        <span class="chip">
+        <span on:dblclick={(e)=> update.items([])} class="chip">
           <spain class="tag is-medium">{chip}</spain>
         </span>
       {/each}

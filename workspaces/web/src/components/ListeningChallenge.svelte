@@ -17,6 +17,7 @@
   export let specialCharacters
   export let skipChallenge
   export let skipAllChallenges
+  export let skipAllVoice
 
   let answer = ""
   let submitted = false
@@ -88,8 +89,8 @@
     </Column>
     <Column>
       <InputFieldWithVirtualKeyboard
-        {specialCharacters}
-        {languageCode}
+        specialCharacters="{specialCharacters}"
+        languageCode="{languageCode}"
         disabled="{submitted}"
         bind:value="{answer}" />
     </Column>
@@ -101,7 +102,8 @@
       buttonText="Submit"
       submit
       skipAction="{skipChallenge}"
-      skipAllAction="{skipAllChallenges}" />
+      skipAllAction="{skipAllChallenges}"
+      skipAllVoice="{skipAllVoice}" />
   {/if}
 
   {#if answer === '' && !submitted}
@@ -109,7 +111,8 @@
       message="{null}"
       buttonText="{null}"
       skipAction="{skipChallenge}"
-      skipAllAction="{skipAllChallenges}" />
+      skipAllAction="{skipAllChallenges}"
+      skipAllVoice="{skipAllVoice}" />
   {/if}
 
   {#if submitted}
@@ -130,5 +133,4 @@
         buttonAction="{finishChallenge}" />
     {/if}
   {/if}
-
 </form>
