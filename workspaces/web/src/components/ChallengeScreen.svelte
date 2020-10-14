@@ -85,7 +85,7 @@
   }
 
   $: skipAllVoiceChallengesFunc = () => {
-    let r2 = remainingChallenges.filter((challenge) => {
+    let filteredRemainingChallenges = remainingChallenges.filter((challenge) => {
       if (challenge.type === "listeningExercise") {
         stats.skipped++
         return false
@@ -94,7 +94,7 @@
       }
     })
 
-    remainingChallenges.splice(0, remainingChallenges.length, ...r2)
+    remainingChallenges.splice(0, remainingChallenges.length, ...filteredRemainingChallenges)
     stats.skipped++
     resolveChallenge()
   }

@@ -51,7 +51,6 @@
   export let resolveChallenge
   export let skipChallenge
   export let skipAllChallenges
-
   let submitted = false
   let correct = null
   const answer = writable([])
